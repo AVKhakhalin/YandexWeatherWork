@@ -1,9 +1,7 @@
 package com.example.yandexweatherwork.ui.fragments.content.domain
 
-import android.util.Log
 import android.view.*
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yandexweatherwork.R

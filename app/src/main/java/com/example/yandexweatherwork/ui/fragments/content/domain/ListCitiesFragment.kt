@@ -202,12 +202,14 @@ class ListCitiesFragment(
                 }
             }
             thread.start()
-            // Остановка на 1 секунду основного потока для уточнения координат места
-            sleep(1000)
-            newCity?.let{
-                it.lat = mainChooserGetter.getLat()
-                it.lon = mainChooserGetter.getLon()
-            }
+
+            // Запуск на считывание найденных координат места через 1 секунду в основном потоке
+            this.view?.postDelayed(Runnable {
+                newCity?.let{
+                    it.lat = mainChooserGetter.getLat()
+                    it.lon = mainChooserGetter.getLon()
+                }
+            },1000)
         }
 
         if (weather!![positionChoosedElement].country.lowercase() == newCity.country.lowercase()) {
